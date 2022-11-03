@@ -1,16 +1,21 @@
-// const person: {
-//     name: string;
-//     age: number;
-// }
-var person = {
-    name: 'Colin',
-    age: 21,
-    hobbies: ['Sports', 'Cooking']
-};
-var favoriteActivities;
-favoriteActivities = ['sport'];
-console.log(person.name);
-for (var _i = 0, _a = person.hobbies; _i < _a.length; _i++) {
-    var hobby = _a[_i];
-    console.log(hobby.toUpperCase());
+function combine(input1, input2, resultConversion) {
+    var result;
+    if (typeof input1 === 'number' && typeof input2 === 'number') {
+        result = input1 + input2;
+    }
+    else {
+        result = input1.toString() + input2.toString();
+    }
+    if (resultConversion === 'as-number') {
+        return +result;
+    }
+    else {
+        return result.toString();
+    }
+    return result;
 }
+var combineAges = combine(30, 26, 'as-number');
+var combineStringAges = combine('30', '26', 'as-number');
+var combineNames = combine('max', 'anna', 'as-text');
+console.log(combineAges);
+console.log(combineStringAges);
